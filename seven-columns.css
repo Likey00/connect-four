@@ -1,8 +1,0 @@
-.row-cover { overflow: hidden; }
-.row-wrap { margin: 0 -8.33333%; }
-@media only screen and (max-width: 767px) {
-    .row-wrap { margin: 0; }
-}
-.centered{
-  margin-left: 5%
-}
