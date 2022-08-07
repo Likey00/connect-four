@@ -1,6 +1,9 @@
 # connect-four
 Rust web app using Yew to play connect four against an AI opponent
 
+# How to access from web
+The web app can be accessed [here](https://likey00.github.io/connect-four/)
+
 # How to run locally
 First, download rust from [here](https://www.rust-lang.org/tools/install)
 
