@@ -9,7 +9,9 @@ pub struct Props {
 pub fn header(props: &Props) -> Html {
     html!{
         <div class="row">
-            <h1 class="center">{props.msg.clone()}</h1>
+            <div class="col s7 offset-s2">
+                <h1 class="center">{props.msg.clone()}</h1>
+            </div>
         </div>
     }
 }

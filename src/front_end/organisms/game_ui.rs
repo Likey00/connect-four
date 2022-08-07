@@ -56,14 +56,10 @@ pub fn game_ui(props: &Props) -> Html {
     let disabled = !in_play.deref();
 
     html!{
-        <div class="row-cover">
-            <div class="row-wrap">
-                <div class="row-centered">
-                    <ButtonRow {button_clicked} {disabled} />
-                    <TileGrid {board} />
-                </div>
-            </div>
-        </div>
+        <>
+        <ButtonRow {button_clicked} {disabled} />
+        <TileGrid {board} />
+        </>
     }
 }
 
