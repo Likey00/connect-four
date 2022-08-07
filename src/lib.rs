@@ -21,7 +21,6 @@ pub fn app() -> Html {
     html!{
         <div class="container">
             <Header {msg} />
-            <div class="divider"></div>
             <GameUI {handle_message} />
         </div>
     }
