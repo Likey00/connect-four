@@ -42,8 +42,6 @@ impl GameState {
 
 impl Game {
     pub fn get_state(&self) -> GameState {
-        if self.levels.iter().all(|x| *x == 0) { return Draw; }
-
         let dir_states = vec![
             self.get_state_red_horiz(),
             self.get_state_red_vert(),
@@ -62,6 +60,8 @@ impl Game {
             }
         }
         
+        if self.levels.iter().all(|x| *x == 0) { return Draw; }
+
         let to_return = Unknown(red_score);
         if self.is_red { to_return } else { to_return.invert() }
     }

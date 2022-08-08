@@ -4,19 +4,20 @@ use crate::front_end::atoms::button::Button;
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
-    pub disabled: bool,
-    pub button_clicked: Callback<usize>
+    pub button_clicked: Option<Callback<usize>>
 }
 
 #[function_component(ButtonRow)]
 pub fn button_row(props: &Props) -> Html {
-    let handle_onclick = {
-        let button_clicked = props.button_clicked.clone();
-        Callback::from(move |choice| button_clicked.emit(choice))
+    let handle_onclick = match &props.button_clicked {
+        Some(button_clicked) => {
+            let button_clicked = button_clicked.clone();
+            Some(Callback::from(move |choice| button_clicked.emit(choice)))
+        },
+        None => None,
     };
     
     let mut buttons = Vec::new();
-    let disabled = props.disabled;
 
     for idx in 0..7 {
         let handle_onclick = handle_onclick.clone();
@@ -26,7 +27,7 @@ pub fn button_row(props: &Props) -> Html {
 
         buttons.push(html!{
             <div {class}>
-                <Button {idx} {disabled} {handle_onclick} />
+                <Button {idx} {handle_onclick} />
             </div>
         });
     }
