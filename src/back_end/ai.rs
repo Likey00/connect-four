@@ -33,7 +33,7 @@ impl AIGame {
     }
 
     fn eval_move(&mut self, test_move: usize, depth: usize) -> Option<GameState> {
-        if let Err(_) = self.game.make_move(test_move) {
+        if self.game.make_move(test_move).is_err() {
             return None;
         }
         
